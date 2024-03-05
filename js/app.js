@@ -35,35 +35,14 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerChoice){
     let winner;
-    if (playerSelection=="rock") {
-        if (computerChoice == "rock"){
-            winner="t"
-        } else if (computerChoice=="paper"){
-            winner="c"
-        } else {
-            winner="p"
-        }
-    } else if (playerSelection=="paper") {
-        if (computerChoice=="rock"){
-            winner="p"
-        }
-        else if (computerChoice=="paper"){
-            winner="t"
-        }
-        else {
-            winner="c"
-        }
+
+    if (playerSelection==computerChoice){
+        winner="t"
+    }else if ((playerSelection=="rock" && computerChoice=="scissor") || (playerSelection=="scissor" && computerChoice=="paper") || (playerSelection=="paper" && computerChoice=="rock")){
+        winner="p"
     }
     else {
-        if (computerChoice=="rock"){
-            winner="c"
-        }
-        else if (computerChoice=="paper"){
-            winner="p"
-        }
-        else{
-            winner="t"
-        }
+        winner="c"
     }
     return winner
 }
