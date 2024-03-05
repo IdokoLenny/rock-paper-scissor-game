@@ -1,13 +1,12 @@
 
 //  initialize the selection array 
-const gameArr=["rock","paper","scissors"]
+const gameArr=["rock","paper","scissor"]
 
 // <!-- get a random number -->
 
 function getNum(){
     return Math.floor(Math.random() * gameArr.length)
 }
-
 // <!-- getPlayerSelection -->
 
 function getPlayerSelection(){
@@ -23,7 +22,18 @@ function getPlayerSelection(){
  console.log(playerChoice)
 // <!-- getComputerChoice -->
 
+function getComputerChoice(){
+    let num=getNum()
+    console.log(num)
+    return gameArr[num]
+}
+let computerChoice=getComputerChoice()
+console.log(computerChoice)
 // <!-- decide winner -->
+
+function playRound(playerSelection, computerChoice){
+    
+}
 
 // <!-- write the playGame function to loop 5 times -->
 
