@@ -13,27 +13,94 @@ function getPlayerSelection(){
     let pChoice=prompt("Specify your choice: Rock or Paper or Scissor")
     pChoice=pChoice.toLowerCase()
     while (pChoice != "rock" && pChoice != "paper" && pChoice != "scissor") {
-        pChoice=prompt("please Specify your choice: Rock or Paper or Scissor")
+        pChoice=prompt("please Specify the right choice: Rock or Paper or Scissor")
         pChoice=pChoice.toLowerCase()
     }
+    console.log(`you picked ${pChoice}`)
     return pChoice;
 }
- let playerChoice=getPlayerSelection();
- console.log(playerChoice)
+ 
+
 // <!-- getComputerChoice -->
 
 function getComputerChoice(){
     let num=getNum()
-    console.log(num)
-    return gameArr[num]
+    let comChoice=gameArr[num]
+    console.log(`computer picked ${comChoice}`)
+    return comChoice
 }
-let computerChoice=getComputerChoice()
-console.log(computerChoice)
+
+
 // <!-- decide winner -->
 
 function playRound(playerSelection, computerChoice){
-    
+    let winner;
+    if (playerSelection=="rock") {
+        if (computerChoice == "rock"){
+            winner="t"
+        } else if (computerChoice=="paper"){
+            winner="c"
+        } else {
+            winner="p"
+        }
+    } else if (playerSelection=="paper") {
+        if (computerChoice=="rock"){
+            winner="p"
+        }
+        else if (computerChoice=="paper"){
+            winner="t"
+        }
+        else {
+            winner="c"
+        }
+    }
+    else {
+        if (computerChoice=="rock"){
+            winner="c"
+        }
+        else if (computerChoice=="paper"){
+            winner="p"
+        }
+        else{
+            winner="t"
+        }
+    }
+    return winner
 }
 
 // <!-- write the playGame function to loop 5 times -->
 
+function playGame(){
+    let playerCount=0
+    let computerCount=0
+    let overAllWinner
+    for (let i=0; i<=4; i++){
+        finalWinner=playRound(getPlayerSelection(),getComputerChoice())
+        if (finalWinner=="p"){
+            playerCount++
+            console.log(`**Scores** \nPlayer: ${playerCount} \nComputer: ${computerCount}`)
+        }
+        else if (finalWinner=="c"){
+            computerCount++
+            console.log(`**Scores** \nPlayer: ${playerCount} \nComputer: ${computerCount}`)
+        } else{
+            console.log(`**Scores** \nPlayer: ${playerCount} \nComputer: ${computerCount}`)
+        }
+    }
+  
+    if (playerCount > computerCount){
+        overAllWinner="Congratulations you Won!..."
+        return overAllWinner
+    }
+    else if (playerCount < computerCount){
+        overAllWinner="Ah! Sorry you lose..."
+        return overAllWinner
+    }
+    else{
+        overAllWinner="its a tie"
+        return overAllWinner
+    }
+}
+
+let mainWinner=playGame()
+console.log(mainWinner)
