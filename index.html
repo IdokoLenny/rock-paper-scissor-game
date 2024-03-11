@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor Game</title>
+    <style>
+        .game{
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h2>ROCK PAPER SCISSOR GAME</h2>
-    <p><strong>Hint: </strong>Open the console to play this game for now... </p>
+
+    <div class="game">
+        <h2>ROCK PAPER SCISSOR GAME</h2>
+        <h4>Player's Choice :</h4>
+        <div class="btns">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissor">Scissors</button>
+        </div>
+        <button class="reset">Reset</button>
+        <div class="container">
+            <p class="final-result"></p>
+        </div>
+    </div>
 
     <script src="./js/app.js"></script>
 </body>
